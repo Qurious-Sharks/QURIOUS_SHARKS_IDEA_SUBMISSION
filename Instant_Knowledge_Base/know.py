@@ -3,7 +3,6 @@ import gradio as gr
 import tempfile
 from gtts import gTTS
 from dotenv import load_dotenv
-
 import google.generativeai as genai
 from google.cloud import speech
 
@@ -16,12 +15,12 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GOOGLE_CREDENTIALS_PATH
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel("gemini-1.5-pro")
 
-
 def generate_explanation(question, language):
     prompt = f"""
     You are a kind and patient teacher who excels at explaining concepts to young students who do not have access to good educational resources.
     ###Instructions:
-    - Explain this question in {language} using simple language and a relatable analogy for a young student to easily understand.
+    - Explain this question in {language} using simple language and easy analogy but make sure to be factual and not dreamy. Just explain straight facts but in a simpler manner for the students to understand.
+    - If the question involves historical real life incidents be straightforward and specify the direct answer as a definition and don't make metaphors or give dreamy explanations.
     - Do not give an extended explanation involving unecessary comments. Be straightforward yet explanatory so that the student can easily understand the explanation.
     - The explanation should be at most 7 lines and not more than that. 
     ###Question: 
@@ -41,7 +40,6 @@ def transcribe_audio(audio_bytes):
     response = client.recognize(config=config, audio=audio)
     return response.results[0].alternatives[0].transcript if response.results else "Could not transcribe"
 
-
 language_code_map = {
     "English": "en",
     "Hindi": "hi",
@@ -50,7 +48,6 @@ language_code_map = {
     "Kannada": "kn",
     "Malayalam": "ml"
 }
-
 
 def process_input(text_input, audio_file, language):
     if text_input and text_input.strip():
@@ -70,7 +67,6 @@ def process_input(text_input, audio_file, language):
     tts.save(temp_audio.name)
 
     return question, explanation, temp_audio.name
-
 
 iface = gr.Interface(
     fn=process_input,
