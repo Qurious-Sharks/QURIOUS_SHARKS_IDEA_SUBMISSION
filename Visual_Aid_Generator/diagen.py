@@ -93,7 +93,7 @@ You are an assistant that generates simple, numbered blackboard drawing steps ba
 
                         with st.spinner("Captioning the image..."):
                             caption = generate_image_caption(image)
-                            st.subheader("📟 Auto-Generated Caption:")
+                            st.subheader("Auto-Generated Caption:")
                             st.markdown(f"**{caption}**")
                 except Exception as e:
                     st.error(f"Image generation or captioning failed: {str(e)}")
