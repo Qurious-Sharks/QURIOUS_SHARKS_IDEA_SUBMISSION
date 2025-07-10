@@ -1,0 +1,5 @@
+python-dotenv
+gradio>=4.0.0
+google-cloud-speech
+google-generativeai
+protobuf>=4.21.0
