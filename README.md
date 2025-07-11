@@ -22,7 +22,7 @@
 
 - Accepts voice input in **Hindi**, **Marathi**, **Tamil**, and more  
 - Outputs explanations, labels, and content in the **same language**  
-- Optional **Text-to-Speech (TTS)** playback for auditory learning  
+- **Text-to-Speech (TTS)** playback for auditory learning  
 - **Local font rendering** (Noto Sans, Devanagari, Tamil, etc.)
 
 ---
