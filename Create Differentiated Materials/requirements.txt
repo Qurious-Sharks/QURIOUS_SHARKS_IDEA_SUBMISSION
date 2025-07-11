@@ -1,0 +1,9 @@
+gradio
+requests
+pillow
+langdetect
+python-dotenv
+google-generativeai
+markdown2
+xhtml2pdf
+reportlab 
